@@ -1,18 +1,19 @@
 package com.Joane.santander_api_2025.domain;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Table(name = "tb_user")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    private String name;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Account account;
-
-    //add getters e setters
-
+    private String nome;
+    private String email;
+    private String senha;
 }
