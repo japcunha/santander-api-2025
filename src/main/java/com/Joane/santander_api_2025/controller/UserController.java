@@ -3,6 +3,7 @@ package com.Joane.santander_api_2025.controller;
 
 import com.Joane.santander_api_2025.domain.User;
 import com.Joane.santander_api_2025.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,12 +29,12 @@ public class UserController {
     }
 
     @PostMapping
-    public User create(@RequestBody User user) {
+    public User create(@RequestBody @Valid User user) {
         return service.save(user);
     }
 
     @PutMapping("/{id}")
-    public User update(@PathVariable Long id, @RequestBody User user) {
+    public User update(@PathVariable Long id, @RequestBody @Valid User user) {
         return service.update(id, user);
     }
 
